@@ -3,7 +3,6 @@ const { v4: uuidv4 } = require("uuid");
 const crypto = require("crypto");
 
 var uid = uuidv4();
-const encryptionKey = crypto.randomBytes(32);
 
 const register = (req, res) => {
   var userId = uid;
@@ -14,7 +13,7 @@ const register = (req, res) => {
       general_key: req.body.general_key,
       special_key: req.body.special_key,
     });
-    User.findOne({ userId: userId }).then((user) => {
+    User.findOne({ email: email }).then((user) => {
       if (user) {
         res.status(404).json({
           status: false,
