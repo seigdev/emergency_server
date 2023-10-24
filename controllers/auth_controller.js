@@ -6,10 +6,11 @@ var uid = uuidv4();
 
 const register = (req, res) => {
   var userId = uid;
+  var email = req.body.email;
   try {
     let userModel = new User({
       userId: userId,
-      email: req.body.email,
+      email: email,
       general_key: req.body.general_key,
       special_key: req.body.special_key,
     });
