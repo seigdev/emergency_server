@@ -24,7 +24,7 @@ const register = (req, res) => {
         userModel
           .save()
           .then((response) => {
-            res.json({
+            res.status(201).json({
               status: true,
               message: "User Added Successfully.",
               data: response,
