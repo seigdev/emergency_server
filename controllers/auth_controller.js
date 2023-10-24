@@ -66,6 +66,11 @@ const login = (req, res) => {
             message: "User has limited access.",
             data: user,
           });
+        } else {
+          res.status(200).json({
+            status: true,
+            message: "Invalid Key Provided.",
+          });
         }
       } else {
         res.status(404).json({
