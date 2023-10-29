@@ -68,7 +68,7 @@ const login = (req, res) => {
           });
         } else {
           res.status(404).json({
-            status: true,
+            status: false,
             message: "Invalid Key Provided.",
           });
         }

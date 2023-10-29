@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 const AuthRoute = require("./routes/auth_route");
+const EmergencyRoute = require("./routes/emergency_details_route");
 
 // change connection string
 mongoose.connect(
@@ -40,3 +41,4 @@ app.listen(PORT, () => {
 
 // api routes.
 app.use("/api/auth", AuthRoute);
+app.use("/api/emergency", EmergencyRoute);
