@@ -22,7 +22,7 @@ const sendDetails = (req, res) => {
     html: `<p>The user location is <b>${location}</b> with an emergency: <b>${details}</b> </p>`,
   };
 
-  if (clause != "") {
+  if (details != "") {
     // Send the email
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
