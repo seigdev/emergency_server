@@ -34,7 +34,7 @@ const sendDetails = (req, res) => {
       } else {
         console.log("Email sent:", info.response);
         res.status(200).json({
-          status: false,
+          status: true,
           message: "Emergency Details sent Successfully.",
         });
       }
