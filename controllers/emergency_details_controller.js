@@ -19,7 +19,7 @@ const sendDetails = (req, res) => {
     from: "eightninemo@gmail.com",
     to: "sooreoluwwaa@icloud.com",
     subject: `New Emergency (${title})`,
-    html: `<p>The user address is <b>${location}</b> with an emergency: <b>${details}</b> </p>`,
+    html: `<p>The user location is <b>${location}</b> with an emergency: <b>${details}</b> </p>`,
   };
 
   if (clause != "") {
