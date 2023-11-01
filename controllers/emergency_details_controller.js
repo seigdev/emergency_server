@@ -2,7 +2,6 @@ const nodemailer = require("nodemailer");
 
 const sendDetails = (req, res) => {
   var location = req.body.location;
-  var title = req.body.emergency_title;
   var details = req.body.emergency_details;
   var email = req.body.email;
   var name = req.body.name;
@@ -23,7 +22,7 @@ const sendDetails = (req, res) => {
       address: `${email}`,
     },
     to: "sooreoluwwaa@icloud.com",
-    subject: `New Emergency (${title})`,
+    subject: `New Emergency`,
     html: `<p>The user location is <b>${location}</b> with an emergency: <b>${details}</b> </p>`,
   };
 
