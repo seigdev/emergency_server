@@ -26,7 +26,7 @@ const register = (req, res) => {
           .then((response) => {
             res.status(201).json({
               status: true,
-              message: "User Added Successfully.",
+              message: "User Created Successfully.",
               data: response,
             });
           })
