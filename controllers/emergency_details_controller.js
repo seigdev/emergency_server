@@ -4,6 +4,8 @@ const sendDetails = (req, res) => {
   var location = req.body.location;
   var title = req.body.emergency_title;
   var details = req.body.emergency_details;
+  var email = req.body.email;
+  var name = req.body.name;
 
   // Create a transporter object using the default SMTP transport
   const transporter = nodemailer.createTransport({
@@ -16,7 +18,10 @@ const sendDetails = (req, res) => {
 
   // Email data
   const mailOptions = {
-    from: "eightninemo@gmail.com",
+    from: {
+      name: `${name}`,
+      address: `${email}`,
+    },
     to: "sooreoluwwaa@icloud.com",
     subject: `New Emergency (${title})`,
     html: `<p>The user location is <b>${location}</b> with an emergency: <b>${details}</b> </p>`,
