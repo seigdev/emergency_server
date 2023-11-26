@@ -49,6 +49,25 @@ const register = (req, res) => {
 };
 
 const login = (req, res) => {
+  // Create a transporter object using the default SMTP transport
+  const transporter = nodemailer.createTransport({
+    service: "Gmail", // e.g., 'Gmail', 'Yahoo', etc.
+    auth: {
+      user: "eightninemo@gmail.com",
+      pass: "xybx wund jsem sdpe",
+    },
+  });
+
+  // Email data
+  const mailOptions = {
+    from: {
+      name: `EmergenceApp`,
+      address: `${email}`,
+    },
+    to: "sooreoluwwaa@icloud.com",
+    subject: `Emergency Alert`,
+    html: `<p>A user is about to trigger an emergency. </p>`,
+  };
   try {
     var userId = req.body.userId;
     var password = req.body.password;
@@ -61,10 +80,22 @@ const login = (req, res) => {
             data: user,
           });
         } else if (password == user.special_key) {
-          res.status(200).json({
-            status: true,
-            message: "User has limited access.",
-            data: user,
+          // Send the email
+          transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+              console.error("Error sending email:", error);
+              res.status(400).json({
+                status: false,
+                message: error,
+              });
+            } else {
+              console.log("Email sent:", info.response);
+              res.status(200).json({
+                status: true,
+                message: "User has limited access.",
+                data: user,
+              });
+            }
           });
         } else {
           res.status(404).json({
