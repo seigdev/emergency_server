@@ -63,7 +63,7 @@ const login = (req, res) => {
   const mailOptions = {
     from: {
       name: `EmergenceApp`,
-      address: `${email}`,
+      address: `sooreoluwwaa@gmail.com`,
     },
     to: "sooreoluwwaa@icloud.com",
     subject: `Emergency Alert`,
