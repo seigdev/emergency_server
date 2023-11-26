@@ -1,5 +1,6 @@
 const User = require("../models/user_model");
 const { v4: uuidv4 } = require("uuid");
+const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 
 var uid = uuidv4();
