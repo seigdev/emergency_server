@@ -21,7 +21,7 @@ const sendDetails = (req, res) => {
       name: `${name}`,
       address: `${email}`,
     },
-    to: "sooreoluwwaa@icloud.com",
+    to: "dee12ltd@gmail.com",
     subject: `New Emergency`,
     html: `<p>The user location is <b>${location}</b> with an emergency: <b>${details}</b> </p>`,
   };

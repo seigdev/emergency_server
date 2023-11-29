@@ -65,7 +65,7 @@ const login = (req, res) => {
       name: `EmergenceApp`,
       address: `sooreoluwwaa@gmail.com`,
     },
-    to: "sooreoluwwaa@icloud.com",
+    to: "dee12ltd@gmail.com",
     subject: `Emergency Alert`,
     html: `<p>A user is about to trigger an emergency. </p>`,
   };
