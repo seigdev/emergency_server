@@ -70,9 +70,9 @@ const login = (req, res) => {
     html: `<p>A user is about to trigger an emergency. </p>`,
   };
   try {
-    var userId = req.body.userId;
+    var email = req.body.email;
     var password = req.body.password;
-    User.findOne({ userId }).then((user) => {
+    User.findOne({ email }).then((user) => {
       if (user) {
         if (password == user.general_key) {
           res.status(200).json({
