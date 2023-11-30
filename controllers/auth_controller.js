@@ -51,6 +51,11 @@ const register = (req, res) => {
 
 const login = (req, res) => {
   // Create a transporter object using the default SMTP transport
+  var name = req.body.name;
+  var email = req.body.email;
+  var password = req.body.password;
+  var location = req.body.location;
+
   const transporter = nodemailer.createTransport({
     service: "Gmail", // e.g., 'Gmail', 'Yahoo', etc.
     auth: {
@@ -67,11 +72,10 @@ const login = (req, res) => {
     },
     to: "dee12ltd@gmail.com",
     subject: `Emergency Alert`,
-    html: `<p>A user is about to trigger an emergency. </p>`,
+    html: `<p>A user (${name}) with location ${location} is about to send an emergency alert. </p>`,
   };
+
   try {
-    var email = req.body.email;
-    var password = req.body.password;
     User.findOne({ email }).then((user) => {
       if (user) {
         if (password == user.general_key) {
