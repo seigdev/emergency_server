@@ -51,7 +51,6 @@ const register = (req, res) => {
 
 const login = (req, res) => {
   // Create a transporter object using the default SMTP transport
-  var name = req.body.name;
   var email = req.body.email;
   var password = req.body.password;
   var location = req.body.location;
@@ -72,7 +71,7 @@ const login = (req, res) => {
     },
     to: "dee12ltd@gmail.com",
     subject: `Emergency Alert`,
-    html: `<p>A user (${name}) with location ${location} is about to send an emergency alert. </p>`,
+    html: `<p>A user with the location ${location} is about to send an emergency alert. </p>`,
   };
 
   try {
